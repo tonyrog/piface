@@ -17,8 +17,9 @@
 %%% @author tony <tony@rogvall.se>
 %%% @doc
 %%%    Piface interface
+%%%
+%%% Created : Apr 2013 by Tony Rogvall
 %%% @end
-%%% Created :  5 Apr 2013 by tony <tony@rogvall.se>
 
 -module(piface).
 -behaviour(gen_server).
@@ -26,7 +27,7 @@
 
 
 %% API
--export([start_link/1,
+-export([start_link/0,
 	 stop/0]).
 
 -export([gpio_get/1, 
@@ -90,22 +91,14 @@
 %% @doc
 %% Starts the server.
 %%
-%% set up some ports
-%% enable hardware addressing + mirror interrupts
-%% I am not sure if MIRROR is needed, because I have not got a up-to-date
-%% schematic of the piface card.
 %% @end
 %%--------------------------------------------------------------------
--spec start_link(Args::list()) ->  
+-spec start_link() ->  
 			{ok, Pid::pid()} | 
 			{error, Reason::atom()}.
-start_link(Args) ->
-    F =	case proplists:get_value(linked,Args,true) of
-	    true -> start_link;
-	    false -> start
-	end,
-
-    gen_server:F({local, ?PIFACE_SRV}, ?MODULE, Args, []).
+start_link()->
+    io:format("piface: start_link\n", []),
+    gen_server:start_link({local, ?PIFACE_SRV}, ?MODULE, [], []).
 
 %%--------------------------------------------------------------------
 %% @doc
@@ -168,14 +161,18 @@ write_output(Value) ->
 %%--------------------------------------------------------------------
 %% @private
 %% @doc
-%% Initializes the server.
 %%
+%% Initializes the server.
+%% set up some ports
+%% enable hardware addressing + mirror interrupts
+%% I am not sure if MIRROR is needed, because I have not got a up-to-date
+%% schematic of the piface card.
 %% @end
 %%--------------------------------------------------------------------
--spec init(Args::list()) -> 
+-spec init([]) -> 
 		  {ok, Ctx::#ctx{}} |
 		  {stop, Reason::atom()}.
-init(_Args) ->
+init([]) ->
     ok = spi:open(?SPI_BUS, ?SPI_DEVICE),
     spi_write(?IOCON,  ?IOCON_HAEN bor ?IOCON_MIRROR),
     spi_write(?IODIRA, 0),     %% set port A as outputs

@@ -14,6 +14,12 @@
 %%% KIND, either express or implied.
 %%%
 %%%---- END COPYRIGHT ---------------------------------------------------------
+%%% @author tony <tony@rogvall.se>
+%%% @doc
+%%%    Piface interface
+%%%
+%%% Created : Apr 2013 by Tony Rogvall
+%%% @end
 
 -module(piface_sup).
 
