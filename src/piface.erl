@@ -48,7 +48,7 @@
 	 terminate/2, 
 	 code_change/3]).
 
--define(PIFACE_SRV, piface_server).
+-define(PIFACE_SRV, piface_srv).
 
 -define(SPI_BUS, 0).
 -define(SPI_DEVICE, 0).
