@@ -3,7 +3,7 @@
 {application, piface,
  [{description, "Piface device controller"},
   {vsn, git},
-  {mod, {piface, []}},
+  {mod, {piface_app, []}},
   {env, []},
   {registered, [piface_srv]},
   {applications,[kernel,stdlib,spi,gpio]}
