@@ -39,7 +39,7 @@ start_link() ->
 %% ===================================================================
 %% Supervisor callbacks
 %% ===================================================================
-
+%% @private
 init([]) ->
     PifaceServer = ?CHILD(piface, worker),
     io:format("piface_sup: init [~p]\n", [PifaceServer]),

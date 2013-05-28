@@ -24,21 +24,20 @@
 -behaviour(gen_server).
 -include_lib("spi/include/spi.hrl").
 
-
-%% API
--export([start_link/1,
-	 stop/0]).
-
--export([gpio_get/1, 
-	 gpio_set/1, 
-	 gpio_clr/1]).
-
+%% api
 -export([init_interrupt/0]).
 
 -export([read_input/0, 
 	 read_output/0,
 	 write_output/1]).
 
+-export([gpio_get/1, 
+	 gpio_set/1, 
+	 gpio_clr/1]).
+
+%% gen_server api
+-export([start_link/1,
+	 stop/0]).
 
 %% gen_server callbacks
 -export([init/1, 
