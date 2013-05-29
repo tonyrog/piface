@@ -19,13 +19,25 @@ piface also requires the following applications to be installed:
 <li>gpio - https://github.com/Feuerlabs/gpio</li>
 </ul>
 
-### Downloading
+### Download
 
 Clone the repository in a suitable location:
 
 ```
 $ git clone git://github.com/tonyrog/piface.git
 ```
+### Build
+
+Rebar will compile all needed dependencies.<br/>
+Compile:
+
+```sh
+$ cd piface
+$ rebar compile
+...
+==> piface (compile)
+```
+
 ### Run
 
 piface is started in a standard erlang fashion:
