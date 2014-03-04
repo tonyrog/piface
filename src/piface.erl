@@ -98,7 +98,6 @@
 			{ok, Pid::pid()} | 
 			{error, Reason::atom()}.
 start_link() ->
-    io:format("piface: start_link\n", []),
     gen_server:start_link({local, ?PIFACE_SRV}, ?MODULE, [], []).
 
 %%--------------------------------------------------------------------
