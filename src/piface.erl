@@ -64,21 +64,31 @@
 -define(SPI_READ_CMD,   16#41).
 
 %% Port configuration
--define(IODIRA, 16#00).    %% I/O direction A
--define(IODIRB, 16#01).    %% I/O direction B
--define(IOCON,  16#0A).     %% I/O config
--define(GPIOA,  16#12).     %% port A
--define(GPIOB,  16#13).     %% port B
--define(GPPUA,  16#0C).     %% port A pullups
--define(GPPUB,  16#0D).     %% port B pullups
--define(OUTPUT_PORT, ?GPIOA).
--define(INPUT_PORT,  ?GPIOB).
+-define(IODIRA,   16#00).    %% I/O direction A
+-define(IODIRB,   16#01).    %% I/O direction B
+-define(IOPOLA,   16#02).
+-define(IOPOLB,   16#03).
 -define(GPINTENA, 16#04).
 -define(GPINTENB, 16#05).
 -define(DEFVALA,  16#06).
 -define(DEFVALB,  16#07).
 -define(INTCONA,  16#08).
 -define(INTCONB,  16#09).
+-define(IOCON,    16#0A).    %% I/O config
+-define(IOCON2,   16#0B).    %% I/O config (same as IOCON)
+-define(GPPUA,    16#0C).    %% port A pullups
+-define(GPPUB,    16#0D).    %% port B pullups
+-define(INTFA,    16#0E).    %% Interrupt flag
+-define(INTFB,    16#0F).    %% Interrupt flag
+-define(IOCAPA,   16#10).    %% Read interrupt value
+-define(IOCAPB,   16#11).    %% Read interrupt value
+-define(GPIOA,    16#12).    %% port A
+-define(GPIOB,    16#13).    %% port B
+-define(OLATA,    16#14).    %% output latch register A
+-define(OLATB,    16#15).    %% output latch register B
+
+-define(OUTPUT_PORT, ?GPIOA).
+-define(INPUT_PORT,  ?GPIOB).
 
 -define(IOCON_HAEN,   2#00001000).
 -define(IOCON_MIRROR, 2#01000000).
